@@ -1,3 +1,4 @@
+from reviews.views import RegisterView, ChangePasswordView
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
@@ -32,4 +33,7 @@ urlpatterns = [
     path('api-token-auth/', drf_views.obtain_auth_token),  # إصدار التوكن ✅
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),  # Swagger ✅
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),  # Redoc ✅
+    path('api/register/', RegisterView.as_view(), name='register'),
+    path('api/change-password/', ChangePasswordView.as_view(), name='change-password'),
+
 ]
